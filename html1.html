@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrie Writers</title>
+    <link rel="stylesheet" href="css1.css">
+</head>
+<body class="dark-theme" >
+
+    <header class="header">
+        <div class="heading"><h1 class="head">Carrie Writers</h1></div>
+        <div class="img2"><img class="img3" src="bars_white.svg" alt="icon" id="themeIco" onclick="div()"></div>
+    </header>
+
+    <div class="body_text">
+        <div class="p1">A journey made for you,</div>
+        <div class="p2">and by you.</div>
+    </div>
+
+    <footer class="footer">
+        <div class="img1"><img class="img4" src="moon.svg" alt="icon" id="themeIcon" onclick="toggletheme()"></div>
+    </footer>
+
+
+    <div id="menu">
+
+        <div><img class= "img9" src="bars_white.svg" alt="icon" id="themeIco" onclick="cdiv()"></div>
+        <div><p class="p10"><img class="img5" src="login.svg" alt="img" onclick="openLoginPopup()"><a href="#" target="_blank"><u>Login</u></a></div>
+        <div><p class="p11"><img class="img6" src="sign.svg" alt="img" onclick="openSignPopup()"><a href="#" target="_blank"><u>Sign Up</u></p></a></div>
+        
+    </div>
+
+
+    <!-- Login -->
+    <div id="login-popup" class="popup" onclick="closePopupOutside(event)">
+        <div class="popup-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeLoginPopup()">&times;</span>
+            <h3>Login</h3>
+            <form id="login-form">
+                <div class="form-group">
+                    
+                    <p>Username</p>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <p>Password</p>
+                    <input type="password" id="password" name="password" required>
+                    <div class="password-strength">
+                        <meter id="password-strength-meter" max="4"></meter>
+                        <p class="text" id="password-strength-text"></p>
+                    </div>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+        
+    <div class="pyramid-loader" id="loading-screen" style="display: none;">
+        <div class="wrapper">
+            <span class="side side1"></span>
+            <span class="side side2"></span>
+            <span class="side side3"></span>
+            <span class="side side4"></span>
+            <span class="shadow"></span>
+        </div>  
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('login-form');
+            const loadingScreen = document.getElementById('loading-screen');
+
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Show the loading screen
+                loadingScreen.style.display = 'flex';
+
+                // Simulate a delay (e.g., 3 seconds) before redirecting
+                setTimeout(() => {
+                    // Redirect to the index.html page
+                    window.location.href = 'home/index.html';
+                }, 3000); // 3000 milliseconds = 3 seconds
+            });
+        });
+    </script>
+
+    <script>
+        // Password strength meter
+        const passwordInput = document.getElementById('password');
+        const passwordStrengthMeter = document.getElementById('password-strength-meter');
+        const passwordStrengthText = document.getElementById('password-strength-text');
+
+        passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+        const strength = calculatePasswordStrength(password);
+
+        passwordStrengthMeter.value = strength;
+        passwordStrengthText.textContent = getPasswordStrengthText(strength);
+        });
+
+        function calculatePasswordStrength(password) {
+        let strength = 0;
+
+        // Check for length
+        if (password.length >= 8) {
+            strength++;
+        }
+
+        // Check for uppercase letters
+        if (/[A-Z]/.test(password)) {
+            strength++;
+        }
+
+        // Check for lowercase letters
+        if (/[a-z]/.test(password)) {
+            strength++;
+        }
+
+        // Check for numbers
+        if (/[0-9]/.test(password)) {
+            strength++;
+        }
+
+        // Check for special characters
+        if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+            strength++;
+        }
+
+        return strength;
+        }
+
+        function getPasswordStrengthText(strength) {
+        switch (strength) {
+            case 0:
+            return 'Weak';
+            case 1:
+            return 'Moderate';
+            case 2:
+            return 'Strong';
+            case 3:
+            return 'Very Strong';
+            default:
+            return '';
+        }
+        }
+        
+    </script>
+
+
+    <!-- Sign Up -->
+    <div id="signup-popup" class="popup" onclick="closePopupOutside(event)">
+        <div class="popup-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeSignPopup()">&times;</span>
+            <h3>Sign Up</h3>
+            <form id="signup-form">
+                <div class="form-group">
+                    <p>Username</p>
+                    <input type="text" id="signup-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <p>Email</p>
+                    <input type="email" id="signup-email" name="email" style="display: block; padding-right: 133px;  border-radius: 5px; height: 40px;;" required>
+                </div>
+                <div class="form-group">
+                    <p>Password</p>
+                    <input type="password" id="sign-password" name="password" required>
+                    <div class="password-strength">
+                        <meter id="sign-password-strength-meter" max="4"></meter>
+                        <p class="text" id="sign-password-strength-text"></p>
+                    </div>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    
+    <script>
+        // Password strength meter
+        const passwordInput1 = document.getElementById('sign-password');
+        const passwordStrengthMeter1 = document.getElementById('sign-password-strength-meter');
+        const passwordStrengthText1 = document.getElementById('sign-password-strength-text');
+
+        passwordInput1.addEventListener('input', () => {
+        const password = passwordInput1.value;
+        const strength = calculatePasswordStrength(password);
+
+        passwordStrengthMeter1.value = strength;
+        passwordStrengthText1.textContent = getPasswordStrengthText(strength);
+        });
+
+        function calculatePasswordStrength(password) {
+        let strength = 0;
+
+        // Check for length
+        if (password.length >= 8) {
+            strength++;
+        }
+
+        // Check for uppercase letters
+        if (/[A-Z]/.test(password)) {
+            strength++;
+        }
+
+        // Check for lowercase letters
+        if (/[a-z]/.test(password)) {
+            strength++;
+        }
+
+        // Check for numbers
+        if (/[0-9]/.test(password)) {
+            strength++;
+        }
+
+        // Check for special characters
+        if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+            strength++;
+        }
+
+        return strength;
+        }
+
+        function getPasswordStrengthText(strength) {
+        switch (strength) {
+            case 0:
+            return 'Weak';
+            case 1:
+            return 'Moderate';
+            case 2:
+            return 'Strong';
+            case 3:
+            return 'Very Strong';
+            default:
+            return '';
+        }
+        }
+
+
+    </script>
+    
+    <script src="js1.js"></script>
+</body>
+</html>
