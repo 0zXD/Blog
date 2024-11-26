@@ -37,7 +37,7 @@
 
 
 /* For the main text for phone dimentions */
-@media (max-width: 431px){
+@media (max-width: 780px){
     .container {
         flex-direction: column;
     }
@@ -107,7 +107,7 @@
 /* For the main text for phone dimentions */
 
 /* For the main text for dimentions bigger than phone */
-@media (max-width: 700px){
+@media (max-width: 904px){
     .header .nav a.phone1 {
         display: none;
     } 
