@@ -23,12 +23,12 @@ body {
     
 
     /* --color: #E1E1E1; */
-    /* --mouse-x: 50%;
-    --mouse-y: 50%; */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
 }
 
 
-/* body::after {
+body::after {
     z-index: 998;
     content: '';
     display: flex;
@@ -45,15 +45,15 @@ body {
     pointer-events: none;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.247);
-    Semi-transparent black
+    /* Semi-transparent black */
     transform: translate(-50%, -50%);
     mix-blend-mode: multiply;
-    Darkens the underlying colors
+    /* Darkens the underlying colors */
     transition: top 0.05s ease, left 0.05s ease, background 0s ease;
     white-space: pre;
-} */
+}
 
-/* body::before {
+body::before {
     z-index: 998;
     content: '';
     position: absolute;
@@ -67,15 +67,15 @@ body {
     transform: translate(-50%, -50%);
     mix-blend-mode: multiply;
     transition: top 0s ease, left 0s ease, background 0s ease, width 0.3s ease, height 0.3s ease;
-} 
+}  
 
 body.hovered::after {
     z-index: 999;
     content: '';
     background: rgba(255, 255, 255, 0);
-} */
+} 
 
-/* body.hovered::before {
+body.hovered::before {
     z-index: 999;
     content: '';
     display: flex;
@@ -92,13 +92,13 @@ body.hovered::after {
     pointer-events: none;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.35);
-    Semi-transparent black
+    /* Semi-transparent black */
     transform: translate(-50%, -50%);
     mix-blend-mode: multiply;
-    Darkens the underlying colors
+    /* Darkens the underlying colors */
     transition: top 0.05s ease, left 0.05s ease, background 0s ease, width 0.3s ease, height 0.3s ease;
     white-space: pre;
-} */
+}
 
 body.light-mode .container_paper {
     width: 100%;
